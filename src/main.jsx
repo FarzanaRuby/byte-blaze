@@ -18,12 +18,17 @@ const router = createBrowserRouter([
     element: <Leyout></Leyout>,
     children : [
       {
+        path : '/',
+        element : <Home></Home>
+      },
+      {
         path:'/bookmarks',
         element: <Bookmarks></Bookmarks>
       },
       {
         path: '/blogs',
-        element:<Blogs></Blogs>
+        element:<Blogs></Blogs>,
+        loader : ()=> fetch('https://dev.to/api/articles?per_page=20&top=7')
       },
     ]
   },
